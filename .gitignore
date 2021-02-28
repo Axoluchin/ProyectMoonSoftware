@@ -1,2 +1,8 @@
 makeExe.txt
-Lunas/
+Lunas
+main.spec
+dist
+__pycache__
+build
+ProjectMoon
+ProjectMoon.zip

@@ -7,4 +7,4 @@ def twitter():
     webbrowser.open('https://twitter.com/LaOdiseaDLMemes')
 
 def github():
-    webbrowser.open('https://github.com/HuchinDamian')
+    webbrowser.open('https://github.com/HuchinDamian/ProyectMoonSoftware')

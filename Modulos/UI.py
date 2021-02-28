@@ -6,7 +6,7 @@ from Modulos import MakePhoto, DataBase, Links
 class UI:
     def __init__(self) -> None:
         self.ventana = tk.Tk()
-        self.ventana.title("You Make A Moon 1.0")
+        self.ventana.title("You Make A Moon 1.1")
         self.ventana.iconbitmap('settings/images/moon.ico')
         self.ventana.resizable(False, False)
 
@@ -24,7 +24,7 @@ class UI:
         lf_mesadetrabajo.pack(side = tk.LEFT)
 
         self.canvas2 = tk.Canvas(lf_mesadetrabajo, width="718", height="404", relief=tk.RIDGE, bd=0)
-        self.canvas2.grid(row=0, column = 0, columnspan= 2)
+        self.canvas2.grid (row=0, column = 0, columnspan= 2)
         
         l_name = tk.Label(lf_mesadetrabajo,text = "Ingrese el texto de su Luna: ",font= self.tamanio)
         l_name.grid(row=1,column=0, padx = 20, pady = 10)
@@ -97,7 +97,7 @@ class UI:
         l_creditos1.pack()
 
         lf_enlaces = tk.LabelFrame(creditos,text= "Links de Referencia:",border=0,font = 20)
-        lf_enlaces.pack(pady=20)
+        lf_enlaces.pack(pady=20,expand='yes')
 
         self.i_face =tk.PhotoImage(file = ("settings/images/facebook.png"))
 
@@ -114,13 +114,23 @@ class UI:
         b_github = tk.Button(lf_enlaces,image=self.i_github,command=Links.github)
         b_github.pack(side=tk.LEFT)
 
-        self.logo = Image.open('settings/images/Logo.png')
+        self.logo1 = Image.open('settings/images/Make.png')
+        self.logo2 = Image.open('settings/images/Logo.png')
 
-        self.logo = self.logo.resize((290, 129), Image.ANTIALIAS)
-        self.logo = ImageTk.PhotoImage(self.logo)
+        self.logo1 = self.logo1.resize((290, 110), Image.ANTIALIAS)
+        self.logo1 = ImageTk.PhotoImage(self.logo1)
 
-        l_logo = tk.Label(creditos,image=self.logo)
-        l_logo.pack()
+        self.logo2 = self.logo2.resize((290, 129), Image.ANTIALIAS)
+        self.logo2 = ImageTk.PhotoImage(self.logo2)
+
+        lf_logo = tk.LabelFrame(creditos,border=0)
+        lf_logo.pack()
+
+        l_logo1 = tk.Label(lf_logo,image=self.logo1)
+        l_logo1.pack(side=tk.RIGHT,padx=20)
+
+        l_logo2 = tk.Label(lf_logo,image=self.logo2)
+        l_logo2.pack(side=tk.RIGHT,padx=20)
 
         l_legal = tk.Label(creditos,text="Super Mario Odyssey is a trademark of Nintendo Co., Ltd.")
         l_legal.pack(side=tk.BOTTOM)

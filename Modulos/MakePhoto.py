@@ -11,12 +11,11 @@ def cearfoto(texto):
     if texto != "":
         imagen = Image.open('settings/images/Plantilla.jpg')
         dibujar = ImageDraw.Draw(imagen)
-        myfont = ImageFont.truetype(Fuente,40)
+        myfont = ImageFont.truetype(Fuente,53)
 
         w, h = dibujar.textsize(texto, font=myfont)
 
-        dibujar.text(((1280-w)/2, 600), texto, font=myfont)
-        imagen.show() 
+        dibujar.text(((1280-w)/2, 605), texto, font=myfont) 
         try:
             imagen.save(f"Lunas/{texto}.jpg")
         except IOError:
@@ -26,6 +25,7 @@ def cearfoto(texto):
         finally:
             messagebox.showinfo("Imagen Guardada",f"Luna guardada en: {os.getcwd()}\\Lunas\\{texto}.jpg")
             salvar_texto(texto)
+            imagen.show()
 
 def minifoto(label,canvas2,texto):
     imagen = Image.open(Mini)
