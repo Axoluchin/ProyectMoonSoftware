@@ -8,7 +8,7 @@ from Modulos import MakePhoto, DataBase, Links, settings
 class UI:
     def __init__(self) -> None:
         self.ventana = tk.Tk()
-        self.ventana.title("You Make A Moon 1.2")
+        self.ventana.title("You Make A Moon 1.2.1")
         self.ventana.iconbitmap('settings/images/moon.ico')
         self.ventana.resizable(False, False)
         self.ventana.overrideredirect(True) #! ESTO
@@ -41,7 +41,7 @@ class UI:
 
         title_bar = ttk.Frame(self.ventana, relief='raised')
         close_button = ttk.Button(title_bar, text='X', command=self.ventana.destroy)
-        title_text = ttk.Label(title_bar,text="You Make A Moon  1.2 Beta",font=(20))
+        title_text = ttk.Label(title_bar,text="You Make A Moon  1.2",font=(20))
         title_bar.pack(expand=1, fill=tk.X,side = tk.TOP)
         title_text.pack(side=tk.LEFT,padx= 10)
         close_button.pack(side=tk.RIGHT)
