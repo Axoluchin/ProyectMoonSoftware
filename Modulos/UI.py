@@ -8,7 +8,7 @@ from Modulos import MakePhoto, DataBase, Links, settings
 class UI:
     def __init__(self) -> None:
         self.ventana = tk.Tk()
-        self.ventana.title("You Make A Moon 1.2 Beta")
+        self.ventana.title("You Make A Moon 1.2")
         self.ventana.iconbitmap('settings/images/moon.ico')
         self.ventana.resizable(False, False)
         self.ventana.overrideredirect(True) #! ESTO
