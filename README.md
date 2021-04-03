@@ -8,3 +8,4 @@ Librerias
   - PIL
   - sqlite3
   - os
+  - json

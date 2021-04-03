@@ -3,13 +3,14 @@ from tkinter import messagebox
 import os
 
 from Modulos.DataBase import DataBase
+from Modulos import settings
 
-Mini = 'settings/images/miniPlantilla.png'
+Mini = 'settings/images/temples/'
 Fuente = "settings/font/moon_get-Heavy.ttf"
 
 def cearfoto(texto):
     if texto != "":
-        imagen = Image.open('settings/images/Plantilla.jpg')
+        imagen = Image.open(f'settings/images/temples/{settings.get_temple_name()}')
         dibujar = ImageDraw.Draw(imagen)
         myfont = ImageFont.truetype(Fuente,53)
 
@@ -24,11 +25,14 @@ def cearfoto(texto):
 
         finally:
             messagebox.showinfo("Imagen Guardada",f"Luna guardada en: {os.getcwd()}\\Lunas\\{texto}.jpg")
-            salvar_texto(texto)
-            imagen.show()
+            if settings.get_history():
+                salvar_texto(texto)
+            if settings.get_photo():
+                imagen.show()
 
 def minifoto(label,canvas2,texto):
-    imagen = Image.open(Mini)
+    imagen = Image.open(f"{Mini}{settings.get_temple_name()}")
+    imagen =imagen.resize((718, 402), Image.ANTIALIAS)
     dibujar = ImageDraw.Draw(imagen)
     myfont = ImageFont.truetype(Fuente,30)
 
@@ -42,7 +46,9 @@ def minifoto(label,canvas2,texto):
 
 def minifoto_historial(canvas,texto):
 
-    imagen = Image.open(Mini)
+    imagen = Image.open(f"{Mini}{settings.get_temple_name()}")
+    imagen =imagen.resize((718, 402), Image.ANTIALIAS)
+
     dibujar = ImageDraw.Draw(imagen)
     myfont = ImageFont.truetype(Fuente,30)
 
@@ -55,11 +61,13 @@ def minifoto_historial(canvas,texto):
     canvas.image=img1
 
 def default(canvas2):
-    imagen = Image.open(Mini)
+    imagen = Image.open(f"{Mini}{settings.get_temple_name()}")
+    imagen =imagen.resize((718, 402), Image.ANTIALIAS)
 
     img1 = ImageTk.PhotoImage(imagen)
     canvas2.create_image(718/2, 404/2, image=img1)
     canvas2.image=img1
+
 
 def salvar_texto(texto):
     datos = DataBase()
